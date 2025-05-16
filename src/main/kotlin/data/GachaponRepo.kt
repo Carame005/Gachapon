@@ -1,12 +1,13 @@
 package es.prog2425.prueba.data
 
 import es.prog2425.prueba.model.Gachapon
+import java.io.StringReader
 import java.sql.SQLException
 import javax.sql.DataSource
 import kotlin.use
 
 class GachaponRepo(val dataSource: DataSource) : IGachaponRepo {
-
+    
     override fun crearTabla() {
        try {
            dataSource.connection.use { con ->
@@ -20,8 +21,15 @@ class GachaponRepo(val dataSource: DataSource) : IGachaponRepo {
        }
     }
 
-    override fun insertarValores() {
-        TODO("Not yet implemented")
+    override fun insertarValores(calidad : String, nombre : String) {
+        dataSource.connection.use { con ->
+            val sql = "INSERT INTO Gachapon (calidad, nombre) VALUES (?, ?)"
+            con.prepareStatement(sql).use { stm ->
+                stm.setString(1, calidad)
+                stm.setString(2, nombre)
+                stm.executeUpdate()
+            }
+        }
     }
 
     override fun obtenerTodos(): List<Gachapon> {
