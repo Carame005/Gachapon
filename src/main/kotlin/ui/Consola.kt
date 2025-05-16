@@ -25,4 +25,8 @@ class Consola : IEntradaSalida{
     override fun pausar() {
         readln()
     }
+
+    override fun mostrarError(msj: String, salto: Boolean) {
+        mostrar(msj, salto)
+    }
 }

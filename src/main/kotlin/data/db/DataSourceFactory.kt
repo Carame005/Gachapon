@@ -1,7 +1,8 @@
-package es.prog2425.prueba.data
+package es.prog2425.prueba.data.db
 
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
+import es.prog2425.prueba.data.db.Mode
 import org.h2.jdbcx.JdbcDataSource
 import javax.sql.DataSource
 

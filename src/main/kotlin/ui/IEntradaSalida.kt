@@ -7,4 +7,5 @@ interface IEntradaSalida {
     fun pedirEntero(msj : String): Int
     fun limpiarPantalla()
     fun pausar()
+    fun mostrarError(msj: String, salto: Boolean)
 }
