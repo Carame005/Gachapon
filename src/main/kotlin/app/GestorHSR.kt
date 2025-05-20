@@ -115,6 +115,7 @@ class GestorHSR(private val ui : IEntradaSalida, private val starRailService: IS
 
 
     fun tirarDiezVeces() {
+        ui.limpiarPantalla()
         repeat(10) {
             tirarUnaVez()
         }

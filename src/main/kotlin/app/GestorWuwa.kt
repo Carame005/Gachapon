@@ -58,12 +58,13 @@ class GestorWuwa(private val ui : IEntradaSalida, private val wuwaService : IWuw
             }
         }
     }
+
     fun tirarUnaVez(): String {
         pity4++
         pity5++
 
         val calidad = when {
-            pity5 >= 80 -> "5⭐"
+            pity5 >= 90 -> "5⭐"
             pity4 >= 10 -> "4⭐"
             else -> {
                 val prob = (1..1000).random()
@@ -75,9 +76,6 @@ class GestorWuwa(private val ui : IEntradaSalida, private val wuwaService : IWuw
             }
         }
 
-        if (calidad == "5⭐") pity5 = 0
-        if (calidad == "4⭐") pity4 = 0
-
         val objeto = when (calidad) {
             "3⭐" -> objetos3Estrellas.random()
             "4⭐" -> objetos4Estrellas.random()
@@ -85,6 +83,17 @@ class GestorWuwa(private val ui : IEntradaSalida, private val wuwaService : IWuw
         }
 
         agregarGachapon(calidad, objeto)
+
+        if (calidad == "5⭐") {
+            pity5 = 0
+            pity4 = 0
+            ejecutarOperacion {
+                wuwaService.truncarTabla()
+            }
+        } else if (calidad == "4⭐") {
+            pity4 = 0
+        }
+
         val resultado = "$calidad $objeto"
         ui.mostrar(resultado, true)
         ui.pausar()

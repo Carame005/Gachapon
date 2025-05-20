@@ -40,10 +40,10 @@ class GestorGenshin(private val ui : IEntradaSalida,private val genshinServicio 
 
 
     fun menuGenshin(){
-        ui.limpiarPantalla()
         var proceso = true
         cargarPityDesdeBD()
         while (proceso) {
+            ui.limpiarPantalla()
             ui.mostrar(
                 """
                     ---Opciones---
@@ -55,7 +55,7 @@ class GestorGenshin(private val ui : IEntradaSalida,private val genshinServicio 
                 """.trimIndent()
             ,false)
             ui.saltoLinea()
-
+            ui.limpiarPantalla()
             when (ui.pedirInfo("Elije una opción: ")) {
                 "1" -> tirarUnaVez()
                 "2" -> tirarDiezVeces()
@@ -115,6 +115,7 @@ class GestorGenshin(private val ui : IEntradaSalida,private val genshinServicio 
 
 
     fun tirarDiezVeces() {
+        ui.limpiarPantalla()
         repeat(10) {
             tirarUnaVez()
         }
