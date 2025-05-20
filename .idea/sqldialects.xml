@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/27c3a531-ee2f-439f-bc37-7183db94efbb/console.sql" dialect="H2" />
+    <file url="file://$PROJECT_DIR$/src/main/kotlin/data/GenshinRepo.kt" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/kotlin/data/StarRailRepo.kt" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/kotlin/data/WuwaRepo.kt" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/kotlin/data/ZenlessRepo.kt" dialect="GenericSQL" />
+  </component>
+</project>

@@ -63,7 +63,7 @@ class GestorWuwa(private val ui : IEntradaSalida, private val wuwaService : IWuw
         pity5++
 
         val calidad = when {
-            pity5 >= 90 -> "5⭐"
+            pity5 >= 80 -> "5⭐"
             pity4 >= 10 -> "4⭐"
             else -> {
                 val prob = (1..1000).random()
